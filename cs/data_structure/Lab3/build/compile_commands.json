@@ -1,0 +1,44 @@
+[
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/build/BinaryTree",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe    -Wall -Wextra -g -O0 -std=gnu++17 -o CMakeFiles\\BinaryTreeDemo.dir\\src\\main.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\data-structure\\Lab3\\BinaryTree\\src\\main.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/BinaryTree/src/main.cpp",
+  "output": "BinaryTree/CMakeFiles/BinaryTreeDemo.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/build/BinaryTree",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe    -Wall -Wextra -g -O0 -std=gnu++17 -o CMakeFiles\\BinaryTreeDemo.dir\\src\\HuffmanTree.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\data-structure\\Lab3\\BinaryTree\\src\\HuffmanTree.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/BinaryTree/src/HuffmanTree.cpp",
+  "output": "BinaryTree/CMakeFiles/BinaryTreeDemo.dir/src/HuffmanTree.cpp.obj"
+},
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/build/BinaryTree",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe    -Wall -Wextra -g -O0 -std=gnu++17 -o CMakeFiles\\BinaryTreeDemo.dir\\src\\ExpressionBinaryTree.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\data-structure\\Lab3\\BinaryTree\\src\\ExpressionBinaryTree.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/BinaryTree/src/ExpressionBinaryTree.cpp",
+  "output": "BinaryTree/CMakeFiles/BinaryTreeDemo.dir/src/ExpressionBinaryTree.cpp.obj"
+},
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/build/BinaryTree",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe    -Wall -Wextra -g -O0 -std=gnu++17 -o CMakeFiles\\BinaryTreeDemo.dir\\src\\BinaryTree.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\data-structure\\Lab3\\BinaryTree\\src\\BinaryTree.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/BinaryTree/src/BinaryTree.cpp",
+  "output": "BinaryTree/CMakeFiles/BinaryTreeDemo.dir/src/BinaryTree.cpp.obj"
+},
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/build/graph",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe  @CMakeFiles/GraphDemo.dir/includes_CXX.rsp  -Wall -Wextra -g -O0 -std=gnu++17 -o CMakeFiles\\GraphDemo.dir\\src\\main.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\data-structure\\Lab3\\graph\\src\\main.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/graph/src/main.cpp",
+  "output": "graph/CMakeFiles/GraphDemo.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/build/graph",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe  @CMakeFiles/GraphDemo.dir/includes_CXX.rsp  -Wall -Wextra -g -O0 -std=gnu++17 -o CMakeFiles\\GraphDemo.dir\\src\\graph.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\data-structure\\Lab3\\graph\\src\\graph.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/graph/src/graph.cpp",
+  "output": "graph/CMakeFiles/GraphDemo.dir/src/graph.cpp.obj"
+},
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/build/graph",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe  @CMakeFiles/GraphDemo.dir/includes_CXX.rsp  -Wall -Wextra -g -O0 -std=gnu++17 -o CMakeFiles\\GraphDemo.dir\\src\\dijkstra.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\data-structure\\Lab3\\graph\\src\\dijkstra.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/graph/src/dijkstra.cpp",
+  "output": "graph/CMakeFiles/GraphDemo.dir/src/dijkstra.cpp.obj"
+}
+]

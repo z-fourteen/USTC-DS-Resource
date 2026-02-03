@@ -1,0 +1,12 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/05_fourteen/ustc-life/2025fall/data-structure/Lab2/build/cmake_install.cmake",
+		"D:/05_fourteen/ustc-life/2025fall/data-structure/Lab2/build/src/cmake_install.cmake",
+		"D:/05_fourteen/ustc-life/2025fall/data-structure/Lab2/build/src/structures/cmake_install.cmake",
+		"D:/05_fourteen/ustc-life/2025fall/data-structure/Lab2/build/src/1_Test/cmake_install.cmake",
+		"D:/05_fourteen/ustc-life/2025fall/data-structure/Lab2/build/src/2_Expression/cmake_install.cmake",
+		"D:/05_fourteen/ustc-life/2025fall/data-structure/Lab2/build/src/3_Robot/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

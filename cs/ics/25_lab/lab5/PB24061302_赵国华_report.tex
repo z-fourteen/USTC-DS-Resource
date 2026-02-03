@@ -1,0 +1,87 @@
+\documentclass[12pt,a4paper]{article}
+
+% ======================
+% 基础宏包
+% ======================
+\usepackage{ctex}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+% ======================
+% 页面设置
+% ======================
+\geometry{
+  left=2.5cm,
+  right=2.5cm,
+  top=2.5cm,
+  bottom=2.5cm
+}
+\onehalfspacing
+
+% ======================
+% 标题信息
+% ======================
+\title{\textbf{Lab5: Break the Barrier - Experiment Report}}
+\author{学号：PB24061302 \\
+姓名：赵国华 \\
+院系：人工智能与数据科学学院}
+\date{}
+
+% ======================
+% 正文开始
+% ======================
+\begin{document}
+\maketitle
+% ======================
+
+\section{实验目的}
+\begin{itemize}
+    \item 理解strcpy函数overflow的底层原理
+    \item 掌握利用缓冲区溢出进行简单攻击的方法
+    \item 进一步熟悉trap vectors和LC3工具中的不同模式
+\end{itemize}
+
+
+
+\section{实验思路}
+\begin{itemize}
+    \item 编写合适的字符串存入RO，由20个随机字符+攻击程序
+    \item 调用trap x30，触发溢出
+\end{itemize}
+
+\section{实验步骤}
+\subsection{将攻击程序写入R0}
+使用LEA指令将字符串地址加载到R0，字符串组成：
+\begin{itemize}
+    \item 利用.FILL伪指令填充20个随机字符
+    \item 使用汇编语言编写跳转到x4000的攻击程序
+    \item 数字x0000表示字符串解释
+\end{itemize}
+值得注意的点：
+\begin{itemize}
+    \item 加载所需的x4000地址时使用LD指令+标签模式，标签也要写到字符串内，否则会出现寻址错误
+    \item 不能使用.STRINGZ伪指令，否则会在字符串末尾自动添加一个0，导致攻击程序无法正确执行
+    \item 不能使用.BLKW伪指令，因为是随机取址，可能会覆盖x4000的代码
+\end{itemize}
+\subsection{触发溢出}
+使用TRAP x30指令触发strcpy函数，导致溢出并执行攻击程序。
+\section{实验结果}
+成功跳转到x4000地址，输出"I make it!"，实验成功。
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{res1.png}
+    
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{res2.png}
+\end{figure}
+\section{实验总结}
+通过本次实验，深入理解了strcpy函数溢出的原理及其利用方法，掌握了缓冲区溢出攻击的基本技巧，并熟悉了trap vectors和LC3工具的不同模式操作。
+发觉自己对于LEA,LD,LDI等指令的使用还不够熟练，今后需要多加练习。
+\end{document}

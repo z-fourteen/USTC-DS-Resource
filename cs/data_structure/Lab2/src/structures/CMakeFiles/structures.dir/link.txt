@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstructures.a CMakeFiles/structures.dir/queue.cpp.o CMakeFiles/structures.dir/stack.cpp.o CMakeFiles/structures.dir/unordered_set.cpp.o
+/usr/bin/ranlib libstructures.a

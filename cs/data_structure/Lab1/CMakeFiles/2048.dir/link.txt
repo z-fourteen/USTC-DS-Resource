@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/2048.dir/src/main.cpp.o CMakeFiles/2048.dir/src/Game.cpp.o CMakeFiles/2048.dir/src/GameBoard.cpp.o CMakeFiles/2048.dir/src/InputHandler.cpp.o CMakeFiles/2048.dir/src/GameRender.cpp.o -o 2048 

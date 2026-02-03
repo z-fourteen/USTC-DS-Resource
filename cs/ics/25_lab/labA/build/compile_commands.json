@@ -1,0 +1,32 @@
+[
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/build",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe -DPROJECT_ROOT=\\\"D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/project/..\\\" @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++17 -o CMakeFiles\\main.dir\\src\\Assembler.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\lessons\\ics\\labA\\project\\src\\Assembler.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/project/src/Assembler.cpp",
+  "output": "CMakeFiles/main.dir/src/Assembler.cpp.obj"
+},
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/build",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe -DPROJECT_ROOT=\\\"D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/project/..\\\" @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++17 -o CMakeFiles\\main.dir\\src\\InstructionSet.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\lessons\\ics\\labA\\project\\src\\InstructionSet.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/project/src/InstructionSet.cpp",
+  "output": "CMakeFiles/main.dir/src/InstructionSet.cpp.obj"
+},
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/build",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe -DPROJECT_ROOT=\\\"D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/project/..\\\" @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++17 -o CMakeFiles\\main.dir\\src\\SymbolTable.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\lessons\\ics\\labA\\project\\src\\SymbolTable.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/project/src/SymbolTable.cpp",
+  "output": "CMakeFiles/main.dir/src/SymbolTable.cpp.obj"
+},
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/build",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe -DPROJECT_ROOT=\\\"D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/project/..\\\" @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++17 -o CMakeFiles\\main.dir\\src\\Utils.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\lessons\\ics\\labA\\project\\src\\Utils.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/project/src/Utils.cpp",
+  "output": "CMakeFiles/main.dir/src/Utils.cpp.obj"
+},
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/build",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe -DPROJECT_ROOT=\\\"D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/project/..\\\" @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++17 -o CMakeFiles\\main.dir\\src\\main.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\lessons\\ics\\labA\\project\\src\\main.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/lessons/ics/labA/project/src/main.cpp",
+  "output": "CMakeFiles/main.dir/src/main.cpp.obj"
+}
+]

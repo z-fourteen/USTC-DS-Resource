@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/2_Expression.dir/calculator.cpp.o CMakeFiles/2_Expression.dir/main.cpp.o -o 2_Expression  ../structures/libstructures.a 

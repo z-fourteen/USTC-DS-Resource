@@ -1,0 +1,20 @@
+[
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/data-structure/hw6/build",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe  @CMakeFiles/hw6_test.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\hw6_test.dir\\DFS_G_test.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\data-structure\\hw6\\DFS_G_test.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/data-structure/hw6/DFS_G_test.cpp",
+  "output": "CMakeFiles/hw6_test.dir/DFS_G_test.cpp.obj"
+},
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/data-structure/hw6/build",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe  @CMakeFiles/hw6_test.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\hw6_test.dir\\DFS_G.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\data-structure\\hw6\\DFS_G.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/data-structure/hw6/DFS_G.cpp",
+  "output": "CMakeFiles/hw6_test.dir/DFS_G.cpp.obj"
+},
+{
+  "directory": "D:/05_fourteen/ustc-life/2025fall/data-structure/hw6/build",
+  "command": "D:\\02_program\\MinGW64\\bin\\g++.exe  @CMakeFiles/hw6_test.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\hw6_test.dir\\PathExist.cpp.obj -c D:\\05_fourteen\\ustc-life\\2025fall\\data-structure\\hw6\\PathExist.cpp",
+  "file": "D:/05_fourteen/ustc-life/2025fall/data-structure/hw6/PathExist.cpp",
+  "output": "CMakeFiles/hw6_test.dir/PathExist.cpp.obj"
+}
+]

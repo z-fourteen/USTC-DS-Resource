@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x5b9e;&#x9a8c;&#x62a5;&#x544a;&#xff1a;ICS Lab3</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="实验报告ics-lab3">实验报告：ICS Lab3</h1>
+<p><strong>PB24061302</strong> | <strong>赵国华</strong> | <strong>2025.12.15</strong></p>
+<hr>
+<h2 id="1实现思路">1.实现思路：</h2>
+<p>选用 <strong>ApproachB(FSM法)</strong>，具体思路如下：</p>
+<ul>
+<li>逐字读取输入字符并转换为数字</li>
+<li>判断输入是否为0，1，若是，对输入的数字进行有限状态机判别，下一个状态的计算采用（2x+INPUT）% 7 计算得到。最大数字为2*6+1 = 13，故复杂度可控。</li>
+<li>若不是，输入结束，将最终结果转换为ASCLL码并输出。</li>
+</ul>
+<h2 id="2实验结果">2.实验结果</h2>
+<p><img src="file:////res.png" alt="实验结果"></p>
+<h2 id="3-代码难点">3. 代码难点：</h2>
+<ul>
+<li>分支条件的安排。本方法中采用了类似while的循环方式，通过条件判断实现分支跳转。</li>
+<li>输入输出的细节处理。由于本题代码量较小，故舍去了输入输出的caller_save部分，选择了使用特定的R1寄存器。且提示语也放在了整块输入输出代码之外，更加简洁。</li>
+</ul>
+<h2 id="4-需改进的地方">4. 需改进的地方：</h2>
+<ul>
+<li>汇编语言中特殊情况的处理：如何优雅地判断特殊字符的输入，仍需进一步学习。</li>
+<li>如何在使用汇编语言时，让逻辑更加简洁。</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/1_Test.dir/main.cpp.o -o 1_Test  ../structures/libstructures.a 

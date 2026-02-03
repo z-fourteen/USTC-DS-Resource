@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/2048.dir/src/main.cpp.o -c /mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/src/main.cpp",
+  "file": "/mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/src/main.cpp",
+  "output": "CMakeFiles/2048.dir/src/main.cpp.o"
+},
+{
+  "directory": "/mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/2048.dir/src/Game.cpp.o -c /mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/src/Game.cpp",
+  "file": "/mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/src/Game.cpp",
+  "output": "CMakeFiles/2048.dir/src/Game.cpp.o"
+},
+{
+  "directory": "/mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/2048.dir/src/GameBoard.cpp.o -c /mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/src/GameBoard.cpp",
+  "file": "/mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/src/GameBoard.cpp",
+  "output": "CMakeFiles/2048.dir/src/GameBoard.cpp.o"
+},
+{
+  "directory": "/mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/2048.dir/src/InputHandler.cpp.o -c /mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/src/InputHandler.cpp",
+  "file": "/mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/src/InputHandler.cpp",
+  "output": "CMakeFiles/2048.dir/src/InputHandler.cpp.o"
+},
+{
+  "directory": "/mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/2048.dir/src/GameRender.cpp.o -c /mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/src/GameRender.cpp",
+  "file": "/mnt/d/05_fourteen/ustc-life/2025fall/data-structure/Lab1/src/GameRender.cpp",
+  "output": "CMakeFiles/2048.dir/src/GameRender.cpp.o"
+}
+]

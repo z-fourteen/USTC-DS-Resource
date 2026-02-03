@@ -1,0 +1,127 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "BinaryTree",
+					"jsonFile" : "directory-BinaryTree-Debug-1a8e499b5f8080b4e628.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "BinaryTree",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "graph",
+					"jsonFile" : "directory-graph-Debug-f4b9be189f468aa128a4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "graph",
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						2
+					],
+					"name" : "Lab3",
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "BinaryTree",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "BinaryTreeDemo::@0d392827d9c8860ec6ad",
+					"jsonFile" : "target-BinaryTreeDemo-Debug-098ddf4cebf27a27e976.json",
+					"name" : "BinaryTreeDemo",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "GraphDemo::@24f0212b3bb5eb7e3fe6",
+					"jsonFile" : "target-GraphDemo-Debug-474028d0d2cf74e097ce.json",
+					"name" : "GraphDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_projects::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_projects-Debug-8287b31d5a5a16dbfb34.json",
+					"name" : "all_projects",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/build",
+		"source" : "D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

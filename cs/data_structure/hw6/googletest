@@ -1,0 +1,14 @@
+CMakeLists.txt
+cmake_minimum_required(VERSION 3.10)
+project(DFS_G)
+
+set(CMAKE_CXX_STANDARD 11)
+
+include_directories(googletest/include)
+
+add_subdirectory(googletest)
+
+add_executable(DFS_G DFS_G.cpp)
+add_executable(DFS_G_test DFS_G_test.cpp)
+
+target_link_libraries(DFS_G_test gtest gtest_main)

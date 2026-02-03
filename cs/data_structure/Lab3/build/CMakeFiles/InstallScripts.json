@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/build/cmake_install.cmake",
+		"D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/build/BinaryTree/cmake_install.cmake",
+		"D:/05_fourteen/ustc-life/2025fall/data-structure/Lab3/build/graph/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/3_Robot.dir/main.cpp.o CMakeFiles/3_Robot.dir/walk.cpp.o -o 3_Robot  ../structures/libstructures.a 

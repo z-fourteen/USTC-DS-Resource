@@ -1,0 +1,3 @@
+D:\02_program\CMake\bin\cmake.exe -E rm -f CMakeFiles\GraphDemo.dir/objects.a
+D:\02_program\MinGW64\bin\ar.exe qc CMakeFiles\GraphDemo.dir/objects.a @CMakeFiles\GraphDemo.dir\objects1.rsp
+D:\02_program\MinGW64\bin\g++.exe  -Wall -Wextra -g -O0 -Wl,--whole-archive CMakeFiles\GraphDemo.dir/objects.a -Wl,--no-whole-archive -o ..\bin\GraphDemo.exe -Wl,--out-implib,libGraphDemo.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\GraphDemo.dir\linkLibs.rsp

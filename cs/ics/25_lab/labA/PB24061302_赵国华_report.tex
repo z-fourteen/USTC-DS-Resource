@@ -1,0 +1,312 @@
+\documentclass[12pt,a4paper]{article}
+
+% ======================
+% 基础宏包
+% ======================
+\usepackage{ctex}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+% ======================
+% 页面设置
+% ======================
+\geometry{
+  left=2.5cm,
+  right=2.5cm,
+  top=2.5cm,
+  bottom=2.5cm
+}
+\onehalfspacing
+
+% ======================
+% 标题信息
+% ======================
+\title{\textbf{LabA: 汇编器}}
+\author{学号：PB24061302 \\ 
+姓名：赵国华 \\
+院系：人工智能与数据科学学院}
+\date{}
+
+% ======================
+% 正文开始
+% ======================
+\begin{document}
+\maketitle
+% ======================
+
+\section{实验目的}
+\begin{itemize}
+  \item 掌握汇编原理：实现双遍扫描，理解符号表与指令编码
+  \item 理解指令周期：实现指令集模拟器，深入理解取值、译码、执行、访存、写回的全过程
+  \item 系统集成能力：通过脚本或主程序将各个组件串连起来，实现完成的本地测试程序
+\end{itemize}
+
+
+\section{实验思路}
+\begin{enumerate}
+  \item 设计汇编器的整体架构，确定各个模块的功能和接口。
+  \item 实现词法分析器，能够识别汇编语言中的各种符号和指令。
+  \item 实现语法分析器，能够根据汇编语言的语法规则生成抽象语法树。
+  \item 实现符号表管理模块，能够处理标签和变量的定义与引用。
+  \item 实现指令编码模块，将汇编指令转换为机器码。
+\end{enumerate}
+
+根据以上分析，需要进行模块的拆分：
+\begin{itemize}
+  \item 输入输出模块：负责读取汇编代码文件，并将其存储为适合处理的数据结构。将生成的机器码写入输出文件。
+  \item 预处理模块：负责去除注释和空白行，处理大小写不敏感的字符。
+  \item 符号表模块：负责管理标签和变量的定义与引用，构建符号表。
+  \item 指令集模块：负责汇编指令的格式、操作数类型和位字段布局。
+  \item 错误处理模块：负责检测和报告汇编过程中出现的错误。
+  \item 主控制模块：负责协调各个模块的工作流程。
+\end{itemize}
+\section{实验过程}
+\subsection{编程语言选择与实验环境搭建}
+\begin{itemize}
+  \item 选择c++作为编程语言，更接近底层，便于加深对汇编器工作原理的理解。
+  \item 选择VScode+WSL+CMake+Clang作为实验环境，便于跨平台开发与调试。
+  \item 使用Git进行版本控制，便于代码管理与协作开发。
+\end{itemize}
+\subsection{汇编器设计与实现}
+\subsubsection{Utils类：文件输入与输出}
+\begin{itemize}
+  \item 功能：处理文件的读写操作
+  \item public静态成员函数：
+  \begin{itemize}
+    \item std::string readFile(const std::string\& filePath)：以二进制模式读取文件内容并返回为字符串
+    \item bool writeFile(const std::string\& filePath, const std::string\& content)：将内容写入指定文件
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{SymbolTable类：符号表管理}
+\begin{itemize}
+  \item 功能：管理标签和变量的地址映射
+  \item public成员函数：
+  \begin{itemize}
+    \item void addSymbol(const std::string\& name, int address)：添加符号及其地址
+    \item int getAddress(const std::string\& name) const：获取符号的地址
+    \item bool contains(const std::string\& name) const：检查符号是否存在
+    \item unordered\_map<std::string, int> getTable() const：获取完整的符号表
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{InstructionSet类：指令集定义与管理}
+\begin{itemize}
+  \item 功能：定义LC-3指令的格式、操作数类型和位字段布局
+  \item 核心数据结构：
+  \begin{itemize}
+    \item BitField：描述指令中字段的位置和大小（startBit和length）
+    \item OperandMode：描述特定操作数类型下的指令格式（如ADD的寄存器模式和立即数模式）
+    \item InstructionInfo：包含指令名、操作码、所有支持的操作数模式
+  \end{itemize}
+  \item 支持的指令：ADD、AND、NOT、LD、ST、LDR、STR、LDI、STI、BR/BRN/BRZ/BRP/BRNZ/BRNP/BRZP/BRNZP、JSR、JSRR、JMP、RET、TRAP、HALT、PUTS等
+  \item public成员函数：
+  \begin{itemize}
+    \item bool isInstruction(const std::string\& word) const：判断是否为指令
+    \item bool isPseudoOp(const std::string\& word) const：判断是否为伪指令（.ORIG、.END、.FILL、.BLKW、.STRINGZ）
+    \item const InstructionInfo* getInstructionInfo(const std::string\& mnemonic) const：获取指令信息
+    \item const OperandMode* getOperandMode(...)：根据操作数类型查找对应的模式
+    \item const BitField* getBitField(const OperandMode* mode, const std::string\& fieldName) const：获取位字段信息
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Assembler类：汇编器的核心}
+\begin{itemize}
+  \item 功能：整合预处理、第一遍扫描、第二遍扫描和代码生成
+  \item private成员变量：
+  \begin{itemize}
+    \item std::vector<std::string> processedCode：预处理后的代码行
+    \item SymbolTable symbolTable：符号表，存储标签和变量的地址映射
+    \item InstructionSet instructionSet：指令集定义
+    \item std::vector<std::string> machineCodes：生成的机器码
+    \item int currentLineNum：用于错误报告的当前行号
+    \item int origAddress：.ORIG指令指定的起始地址
+  \end{itemize}
+  \item private成员函数：
+  \begin{itemize}
+    \item void preprocess(const std::string\& sourceCode)：预处理源代码
+    \begin{itemize}
+      \item 删除注释（分号后的内容）
+      \item 删除前导和尾部空白
+      \item 将所有字符转换为大写（除了.STRINGZ中的字符串）
+      \item 将逗号转换为空格
+    \end{itemize}
+    \item void firstPass()：第一遍扫描，构建符号表
+    \begin{itemize}
+      \item 遍历所有行，识别标签定义
+      \item 计算每条指令的地址（考虑.STRINGZ和.BLKW占用的空间）
+      \item 处理.STRINGZ时正确计算转义序列的实际字符数
+      \item 处理.BLKW时累加块的大小
+    \end{itemize}
+    \item void secondPass()：第二遍扫描，生成机器码
+    \begin{itemize}
+      \item 处理指令并生成对应的机器码
+      \item 识别操作数类型（寄存器、立即数、偏移量）
+      \item 进行指令编码，包括：
+      \begin{itemize}
+        \item 设置操作码
+        \item 处理立即数标志位（ADD/AND的位5）
+        \item 处理分支条件位（BR指令的位9-11）
+        \item 处理特殊标志位（JSR的位11）
+        \item 处理陷阱向量（TRAP相关指令）
+        \item 处理RET为特殊的JMP R7
+      \end{itemize}
+      \item 处理伪指令（.ORIG、.FILL、.BLKW、.STRINGZ、.END）
+      \item 实现转义序列处理（\textbackslash n、\textbackslash t等）
+      \item 完善的错误检测和异常抛出
+    \end{itemize}
+    \item std::string generateMachineCodeOutput()：生成输出格式的机器码
+  \end{itemize}
+  \item public成员函数：
+  \begin{itemize}
+    \item void assemble(std::string inputPath, std::string outputPath)：主汇编接口
+    \begin{itemize}
+      \item 读取输入文件
+      \item 调用preprocess、firstPass、secondPass
+      \item 将机器码写入输出文件
+      \item 异常处理和错误报告
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{AssemblerException类：异常处理}
+\begin{itemize}
+  \item 功能：统一的异常处理机制，包含8种错误代码：
+  \begin{itemize}
+    \item FILE\_READ\_ERROR (1)：文件读取失败
+    \item FILE\_WRITE\_ERROR (2)：文件写入失败
+    \item SYNTAX\_ERROR (3)：语法错误（如缺少操作数）
+    \item SEMANTIC\_ERROR (4)：语义错误（如未定义的标签）
+    \item INVALID\_OPERAND (5)：无效操作数（如寄存器范围超出）
+    \item INVALID\_INSTRUCTION (6)：未知指令
+    \item SYMBOL\_ERROR (7)：符号表错误（如重复定义）
+    \item VALUE\_OUT\_OF\_RANGE (8)：值超出范围（如立即数过大）
+  \end{itemize}
+  \item 特点：包含行号信息，便于定位错误位置
+\end{itemize}
+
+\section{实验结果}
+
+\subsection{实现的功能特性}
+\begin{itemize}
+  \item ✅ 完整的LC-3汇编器实现，支持15+条指令
+  \item ✅ 双遍扫描架构：第一遍构建符号表，第二遍生成机器码
+  \item ✅ 多模式指令支持：如ADD/AND的寄存器和立即数模式
+  \item ✅ 完善的伪指令处理：.ORIG、.END、.FILL、.BLKW、.STRINGZ
+  \item ✅ 转义序列处理：支持$\backslash$n、$\backslash$t等特殊字符
+  \item ✅ 8种详细的错误代码和行号定位
+  \item ✅ 特殊指令处理：BR/BRN等分支指令的条件位、RET作为JMP R7的转换
+  \item ✅ 大小写敏感处理：保留.STRINGZ中字符串的原始大小写
+\end{itemize}
+
+\subsection{关键算法与实现细节}
+
+\subsubsection{预处理阶段的大小写处理}
+预处理需要将指令和操作数转换为大写以便统一处理，但需要保留.STRINGZ字符串的原始大小写。实现方式：
+\begin{itemize}
+  \item 检测行中是否包含.STRINGZ
+  \item 若有，将.STRINGZ之前的部分转换为大写，之后的部分保留原样
+  \item 若无，全行转换为大写
+\end{itemize}
+
+\subsubsection{第一遍扫描的地址计算}
+不同伪指令占用的地址空间不同：
+\begin{itemize}
+  \item 普通指令：1个地址单位
+  \item .STRINGZ：字符数+1（null终止符），需考虑转义序列
+  \item .BLKW：指定的块大小
+  \item .FILL：1个地址单位
+\end{itemize}
+
+对于.STRINGZ的长度计算，需要逐个扫描字符，识别转义序列（如$\backslash$n、$\backslash$t等），每个转义序列只计为1个字符。
+
+\subsubsection{第二遍扫描的机器码生成}
+关键要点：
+\begin{itemize}
+  \item 操作数识别：根据首字符判断类型（R开头为寄存器，\#或X开头为立即数，其他为标签）
+  \item 立即数标志位：ADD和AND指令若第三个操作数为立即数，则设置位5为1
+  \item 分支条件位：BR指令根据指令名确定位9-11（NZP位）：
+  \begin{itemize}
+    \item BRn：100、BRz：010、BRp：001、BRNZ：110等
+    \item BR（无条件）：111
+  \end{itemize}
+  \item 陷阱向量：TRAP系列指令设置对应的向量号（0x20-0x25）
+  \item RET特殊处理：转换为固定的机器码0x1C00（JMP R7）
+  \item 转义序列处理：.STRINGZ中的$\backslash$n等转换为对应的ASCII码
+\end{itemize}
+
+\subsection{测试结果}
+使用提供的compare\_results.py脚本对比输出与标准答案：
+\begin{itemize}
+  \item 测试用例覆盖：fibonacci、加法、与、非、分支、跳转、子程序、栈操作、字符串处理等
+  \item 验证内容：指令编码、地址计算、符号表、特殊指令处理
+  \item 测试工具：Python脚本自动化对比，显示差异详情和十六进制差值
+\end{itemize}
+
+\section{实验总结}
+
+\subsection{关键问题与解决方案}
+
+\subsubsection{问题1：大小写敏感性的处理}
+汇编指令应该大小写不敏感，但字符串内容需要保留原始大小写。
+\begin{itemize}
+  \item 问题：直接转换整行为大写会破坏字符串的大小写
+  \item 解决：在preprocess函数中检测.STRINGZ，分别处理指令部分和字符串部分
+\end{itemize}
+
+\subsubsection{问题2：立即数标志位的编码}
+ADD和AND指令支持两种模式，但立即数模式需要在位5设置标志位。
+\begin{itemize}
+  \item 问题：简单的位字段定义无法表示固定的标志位
+  \item 解决：在secondPass中，根据操作数类型检测，若为立即数则在位5设置1
+\end{itemize}
+
+\subsubsection{问题3：字符串长度的精确计算}
+.STRINGZ的字符数需要考虑转义序列，而不是简单地用字符串长度减去引号。
+\begin{itemize}
+  \item 问题：直接计数会把转义序列（如$\backslash$n）算为2个字符
+  \item 解决：逐个字符扫描，识别转义模式并跳过反斜杠
+\end{itemize}
+
+\subsubsection{问题4：RET指令的特殊处理}
+RET（返回）指令实际是JMP R7的特殊情况。
+\begin{itemize}
+  \item 问题：RET没有操作数，无法通过通用的指令编码路径处理
+  \item 解决：在secondPass中特殊检测RET指令，直接设置机器码为0x1C00
+\end{itemize}
+
+\subsubsection{问题5：分支偏移量的范围检查}
+分支指令使用相对寻址，偏移量必须在指定范围内。
+\begin{itemize}
+  \item 问题：无效的偏移量会导致寻址错误
+  \item 解决：计算pcOffset后检查范围$[-2^{n-1}, 2^{n-1}-1]$，超出范围抛出异常
+\end{itemize}
+
+\subsection{设计亮点}
+
+\begin{itemize}
+  \item \textbf{模块化设计}：分离关注点，Utils处理I/O、SymbolTable管理符号、InstructionSet定义指令格式、Assembler协调整个流程
+  \item \textbf{异常处理}：8种错误代码覆盖各类问题，包含行号信息便于定位和调试
+  \item \textbf{多模式支持}：用OperandMode数组实现多种操作数模式，灵活应对不同指令格式
+  \item \textbf{位字段精确描述}：BitField结构明确定义每个字段的位置和大小，便于自动化编码
+  \item \textbf{代码一致性}：注释全部中文，便于代码审阅和维护
+\end{itemize}
+
+\subsection{学习收获与反思}
+
+通过本实验，深入理解了：
+\begin{itemize}
+  \item LC-3汇编语言的完整语法和语义
+  \item 汇编器的设计原理和实现流程（预处理、符号表构建、代码生成）
+  \item 机器码的二进制编码，位字段的精确定位
+  \item 异常处理和错误恢复的重要性
+  \item 模块化设计在复杂系统中的价值
+  \item 测试驱动开发的必要性（自动化对比工具快速反馈）
+\end{itemize}
+
+\end{document}
